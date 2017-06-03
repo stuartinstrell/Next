@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>International Size Gide Prototype</title>
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(function() {
+    var $unitLeft = $('.unit .left'),
+        $unitRight = $(".unit .right"),
+        $tgInch = $('.tg.inch'),
+        $tgCm = $('.tg.cm');
+    // open/close slideout menu
+    $(".click-container, .top a").on('click', function(e) {
+        e.preventDefault();
+        $(".slideout, .overlay").toggleClass("open");
+        $("body").toggleClass("clicked");
+    });
+    // add active class to CM selector on page load
+    $unitLeft.addClass('active');
+    // load CM table/hide Inch table
+    $unitLeft.on('click', function(e) {
+        e.preventDefault();
+        $tgCm.show(0);
+        $tgInch.hide(0);
+        $unitLeft.addClass("active");
+        $unitRight.removeClass("active");
+    });
+    // load Inch table/hide CM table
+    $unitRight.on('click', function(e) {
+        e.preventDefault();
+        $tgInch.show(0);
+        $tgCm.hide(0);
+        $unitRight.addClass("active");
+        $unitLeft.removeClass("active");
+    });
+    // Make the Dropdown work
+    $(".dropdown").on('click',function(e){
+    e.preventDefault();
+    $(".dropdown ul").toggleClass("active");
+    });
+    // change down arrow to close icon
+    $(".dropdown").click(function() {
+           var _this = $(".dropdown img");
+           var current = _this.attr("src");
+           var swap = _this.attr("data-swap");
+           _this.attr('src', swap).attr("data-swap",current);
+           $(".dropdown img").toggleClass("active");
+    });
+    });
+    </script>
+
+    <!--<script type="text/javascript">
+    $(function(){
+  $('.dropdown ul li a').click(function(e){
+    var url = $(this).attr('href');
+    $('#content').load(url);
+    e.preventDefault();
+  });
+});
+    </script>-->
+
+  </head>
+  <body>
+
+    <!-- black overlay -->
+    <div class="overlay"></div>
+
+    <!-- slideout menu -->
+    <div class="slideout">
+
+      <!-- top bar -->
+      <div class="top" id="top">
+        <p>Sizing Guide - Womens</p>
+        <a class="cancel" href="#">Cancel</a>
+      </div>
+
+      <!-- dropdown menu -->
+      <div class="dropdown">
+        <p>Dresses, Jumpsuits & Playsuits</p>
+        <img src="img/downarrow.svg" data-swap="img/close.svg" />
+        <ul>
+          <li><a href="#">Dresses, Jumpsuits & Playsuits</a></li>
+          <li><a href="#">Jeans, Trousers, Shorts & Leggings</a></li>
+          <li><a href="#">Tops, Coats, Jackets & Nightwear</a></li>
+          <li><a href="#">Skirts</a></li>
+          <li><a href="#">Lingerie</a></li>
+          <li><a href="#">Hosiery</a></li>
+          <li><a href="#">Footwear</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">International Sizes</a></li>
+          <li><a href="#">Lipsy</a></li>
+          <li><a href="#">Maternity Trousers, Skirts and Shorts Fit Guide</a></li>
+          <li><a href="#">Maternity Tops and Dresses Fit Guide</a></li>
+          <li><a href="#">Maternity Essentials Fit Guide</a></li>
+          <li><a href="#">Maternity Breastfeeding Fit Guide</a></li>
+          <li><a href="#">Women's Speedo</a></li>
+          <li><a href="#">Ring Sizing Guide</a></li>
+        </ul>
+      </div>
+
+      <!-- main content container -->
+      <div class="container">
+
+      <!-- unit changer -->
+      <div class="measure-type">
+        <p>CHANGE MEASUREMENT TYPE</p>
+          <div class="unit">
+          <a data-cycle-cmd="goto" data-cycle-arg="0" class="left" href="">CM</a>
+          <a data-cycle-cmd="goto" data-cycle-arg="1" class="right" href="">IN</a>
+        </div>
+      </div>
+
+      <!-- tables inside slider -->
+      <div class="cycle-slideshow" data-cycle-fx="fadeout" data-cycle-timeout=0 data-cycle-slides="> table">
+
+      <table class="tg cm">
+      <tr>
+        <th class="tg-hwnp">UK Size</th>
+        <th class="tg-hwnp">Bust</th>
+        <th class="tg-hwnp">Waist</th>
+        <th class="tg-hwnp">Hips</th>
+      </tr>
+      <tr>
+        <td class="tg-lbjn">6</td>
+        <td class="tg-lbjn">80</td>
+        <td class="tg-lbjn">65</td>
+        <td class="tg-lbjn">87.5</td>
+      </tr>
+      <tr>
+        <td class="tg-i81m">8</td>
+        <td class="tg-i81m">84</td>
+        <td class="tg-i81m">67.5</td>
+        <td class="tg-i81m">91.5</td>
+      </tr>
+      <tr>
+        <td class="tg-lbjn">10</td>
+        <td class="tg-lbjn">86.5</td>
+        <td class="tg-lbjn">65</td>
+        <td class="tg-lbjn">87.5</td>
+      </tr>
+      <tr>
+        <td class="tg-i81m">12</td>
+        <td class="tg-i81m">90</td>
+        <td class="tg-i81m">67.5</td>
+        <td class="tg-i81m">91.5</td>
+      </tr>
+      <tr>
+        <td class="tg-lbjn">14</td>
+        <td class="tg-lbjn">94</td>
+        <td class="tg-lbjn">65</td>
+        <td class="tg-lbjn">87.5</td>
+      </tr>
+      <tr>
+        <td class="tg-i81m">16</td>
+        <td class="tg-i81m">99</td>
+        <td class="tg-i81m">67.5</td>
+        <td class="tg-i81m">91.5</td>
+      </tr>
+      <tr>
+        <td class="tg-lbjn">18</td>
+        <td class="tg-lbjn">104</td>
+        <td class="tg-lbjn">65</td>
+        <td class="tg-lbjn">87.5</td>
+      </tr>
+      <tr>
+        <td class="tg-i81m">20</td>
+        <td class="tg-i81m">109</td>
+        <td class="tg-i81m">67.5</td>
+        <td class="tg-i81m">91.5</td>
+      </tr>
+      <tr>
+        <td class="tg-lbjn">22</td>
+        <td class="tg-lbjn">114</td>
+        <td class="tg-lbjn">67.5</td>
+        <td class="tg-lbjn">91.5</td>
+      </tr>
+      <tr>
+        <td class="tg-i81m">24</td>
+        <td class="tg-i81m">123</td>
+        <td class="tg-i81m">65</td>
+        <td class="tg-i81m">87.5</td>
+      </tr>
+      <tr>
+        <td class="tg-lbjn">26</td>
+        <td class="tg-lbjn">128</td>
+        <td class="tg-lbjn">67.5</td>
+        <td class="tg-lbjn">91.5</td>
+      </tr>
+      </table>
+
+      <table class="tg inch">
+      <tr>
+        <th class="tg-hwnp">UK Size</th>
+        <th class="tg-hwnp">Bust</th>
+        <th class="tg-hwnp">Waist</th>
+        <th class="tg-hwnp">Hips</th>
+      </tr>
+      <tr>
+        <td class="tg-lbjn">6</td>
+        <td class="tg-lbjn">31.5</td>
+        <td class="tg-lbjn">25.5</td>
+        <td class="tg-lbjn">34</td>
+      </tr>
+      <tr>
+        <td class="tg-i81m">8</td>
+        <td class="tg-i81m">33</td>
+        <td class="tg-i81m">26.5</td>
+        <td class="tg-i81m">36</td>
+      </tr>
+      <tr>
+        <td class="tg-lbjn">10</td>
+        <td class="tg-lbjn">34</td>
+        <td class="tg-lbjn">28</td>
+        <td class="tg-lbjn">37</td>
+      </tr>
+      <tr>
+        <td class="tg-i81m">12</td>
+        <td class="tg-i81m">35</td>
+        <td class="tg-i81m">29</td>
+        <td class="tg-i81m">39</td>
+      </tr>
+      <tr>
+        <td class="tg-lbjn">14</td>
+        <td class="tg-lbjn">37</td>
+        <td class="tg-lbjn">31</td>
+        <td class="tg-lbjn">41.5</td>
+      </tr>
+      <tr>
+        <td class="tg-i81m">16</td>
+        <td class="tg-i81m">39</td>
+        <td class="tg-i81m">33</td>
+        <td class="tg-i81m">43.5</td>
+      </tr>
+      <tr>
+        <td class="tg-lbjn">18</td>
+        <td class="tg-lbjn">41</td>
+        <td class="tg-lbjn">36</td>
+        <td class="tg-lbjn">46</td>
+      </tr>
+      <tr>
+        <td class="tg-i81m">20</td>
+        <td class="tg-i81m">43</td>
+        <td class="tg-i81m">39</td>
+        <td class="tg-i81m">48</td>
+      </tr>
+      <tr>
+        <td class="tg-lbjn">22</td>
+        <td class="tg-lbjn">45</td>
+        <td class="tg-lbjn">40.5</td>
+        <td class="tg-lbjn">50</td>
+      </tr>
+      <tr>
+        <td class="tg-i81m">24</td>
+        <td class="tg-i81m">48</td>
+        <td class="tg-i81m">43</td>
+        <td class="tg-i81m">51.5</td>
+      </tr>
+      <tr>
+        <td class="tg-lbjn">26</td>
+        <td class="tg-lbjn">50.5</td>
+        <td class="tg-lbjn">45.5</td>
+        <td class="tg-lbjn">54</td>
+      </tr>
+      </table>
+
+    </div>
+
+    </div>
+
+    <!-- title bar -->
+    <div class="title-bar">
+      <p>International Size Conversion</p>
+    </div>
+
+    <!-- main content container -->
+    <div class="container">
+
+    <!-- international table -->
+
+<table class="tg international">
+  <tr>
+    <th class="tg-hwnp">UK</th>
+    <th class="tg-hwnp">EU</th>
+    <th class="tg-hwnp">US</th>
+    <th class="tg-hwnp">AU</th>
+    <th class="tg-p0o9">RUS</th>
+  </tr>
+  <tr>
+    <td class="tg-lbjn">6</td>
+    <td class="tg-lbjn">34</td>
+    <td class="tg-lbjn">2</td>
+    <td class="tg-lbjn">6</td>
+    <td class="tg-lbjn">40</td>
+  </tr>
+  <tr>
+    <td class="tg-i81m">8</td>
+    <td class="tg-i81m">36</td>
+    <td class="tg-i81m">4</td>
+    <td class="tg-i81m">8</td>
+    <td class="tg-i81m">42</td>
+  </tr>
+  <tr>
+    <td class="tg-lbjn">10</td>
+    <td class="tg-lbjn">38</td>
+    <td class="tg-lbjn">6</td>
+    <td class="tg-lbjn">10</td>
+    <td class="tg-lbjn">44</td>
+  </tr>
+  <tr>
+    <td class="tg-i81m">12</td>
+    <td class="tg-i81m">40</td>
+    <td class="tg-i81m">8</td>
+    <td class="tg-i81m">12</td>
+    <td class="tg-i81m">46</td>
+  </tr>
+  <tr>
+    <td class="tg-lbjn">14</td>
+    <td class="tg-lbjn">42</td>
+    <td class="tg-lbjn">10</td>
+    <td class="tg-lbjn">14</td>
+    <td class="tg-lbjn">48</td>
+  </tr>
+  <tr>
+    <td class="tg-i81m">16</td>
+    <td class="tg-i81m">44</td>
+    <td class="tg-i81m">12</td>
+    <td class="tg-i81m">16</td>
+    <td class="tg-i81m">50</td>
+  </tr>
+  <tr>
+    <td class="tg-lbjn">18</td>
+    <td class="tg-lbjn">46</td>
+    <td class="tg-lbjn">14</td>
+    <td class="tg-lbjn">18</td>
+    <td class="tg-lbjn">52</td>
+  </tr>
+  <tr>
+    <td class="tg-i81m">20</td>
+    <td class="tg-i81m">48</td>
+    <td class="tg-i81m">16</td>
+    <td class="tg-i81m">20</td>
+    <td class="tg-i81m">54</td>
+  </tr>
+  <tr>
+    <td class="tg-lbjn">22</td>
+    <td class="tg-lbjn">50</td>
+    <td class="tg-lbjn">18</td>
+    <td class="tg-lbjn">22</td>
+    <td class="tg-lbjn">56</td>
+  </tr>
+  <tr>
+    <td class="tg-i81m">24</td>
+    <td class="tg-i81m">52</td>
+    <td class="tg-i81m">20</td>
+    <td class="tg-i81m">24</td>
+    <td class="tg-i81m">58</td>
+  </tr>
+  <tr>
+    <td class="tg-lbjn">26</td>
+    <td class="tg-lbjn">54</td>
+    <td class="tg-lbjn">22</td>
+    <td class="tg-lbjn">26</td>
+    <td class="tg-lbjn">60</td>
+  </tr>
+</table>
+
+</div>
+
+<!-- title bar -->
+<div class="title-bar">
+  <p>Petite Size: 4’11” - 5’3” Sizes 6 - 18</p>
+</div>
+
+<!-- main content container -->
+<div class="container">
+
+  <!-- unit changer -->
+  <div class="measure-type lower">
+    <p>CHANGE MEASUREMENT TYPE</p>
+      <div class="unit">
+      <a data-cycle-cmd="goto" data-cycle-arg="0" class="left" href="">CM</a>
+      <a data-cycle-cmd="goto" data-cycle-arg="1" class="right" href="">IN</a>
+    </div>
+  </div>
+
+<table class="tg petite inch">
+<tr>
+  <th class="tg-hwnp">Garment</th>
+  <th class="tg-hwnp">Shortened Up To</th>
+</tr>
+<tr>
+  <td class="tg-lbjn">Short dress/skirt</td>
+  <td class="tg-lbjn">5</td>
+</tr>
+<tr>
+  <td class="tg-i81m">Long dress/skirt</td>
+  <td class="tg-i81m">15</td>
+</tr>
+<tr>
+  <td class="tg-lbjn">Sleeve length</td>
+  <td class="tg-lbjn">4</td>
+</tr>
+<tr>
+  <td class="tg-i81m">Trouser (rise)*</td>
+  <td class="tg-i81m">1.5</td>
+</tr>
+<tr>
+  <td class="tg-lbjn">Trouser (inside leg)</td>
+  <td class="tg-lbjn">5</td>
+</tr>
+</table>
+
+<table class="tg petite cm">
+<tr>
+  <th class="tg-hwnp">Garment</th>
+  <th class="tg-hwnp">Shortened Up To</th>
+</tr>
+<tr>
+  <td class="tg-lbjn">Short dress/skirt</td>
+  <td class="tg-lbjn">12.7</td>
+</tr>
+<tr>
+  <td class="tg-i81m">Long dress/skirt</td>
+  <td class="tg-i81m">38.1</td>
+</tr>
+<tr>
+  <td class="tg-lbjn">Sleeve length</td>
+  <td class="tg-lbjn">10.16</td>
+</tr>
+<tr>
+  <td class="tg-i81m">Trouser (rise)*</td>
+  <td class="tg-i81m">3.81</td>
+</tr>
+<tr>
+  <td class="tg-lbjn">Trouser (inside leg)</td>
+  <td class="tg-lbjn">12.7</td>
+</tr>
+</table>
+
+<!-- information -->
+<div class="info">
+<p><strong>Decrease based on main range garment</strong></p>
+<p>*A trouser rise refers to the measurement between the crotch and the waist band</p>
+</div>
+
+</div>
+
+
+<!-- title bar -->
+<div class="title-bar">
+  <p>Tall Sizes</p>
+</div>
+
+<!-- main content container -->
+<div class="container">
+
+  <!-- unit changer -->
+  <div class="measure-type lower">
+    <p>CHANGE MEASUREMENT TYPE</p>
+      <div class="unit">
+      <a data-cycle-cmd="goto" data-cycle-arg="0" class="left" href="">CM</a>
+      <a data-cycle-cmd="goto" data-cycle-arg="1" class="right" href="">IN</a>
+    </div>
+  </div>
+
+<table class="tg petite inch">
+<tr>
+  <th class="tg-hwnp">Garment</th>
+  <th class="tg-hwnp">Lengthened Up To</th>
+</tr>
+<tr>
+  <td class="tg-lbjn">Short dress/skirt</td>
+  <td class="tg-lbjn">12</td>
+</tr>
+<tr>
+  <td class="tg-i81m">Long dress/skirt</td>
+  <td class="tg-i81m">17</td>
+</tr>
+<tr>
+  <td class="tg-lbjn">Sleeve length</td>
+  <td class="tg-lbjn">1</td>
+</tr>
+<tr>
+  <td class="tg-i81m">Trouser (rise)*</td>
+  <td class="tg-i81m">2</td>
+</tr>
+<tr>
+  <td class="tg-lbjn">Trouser (inside leg)</td>
+  <td class="tg-lbjn">15</td>
+</tr>
+</table>
+
+<table class="tg petite cm">
+<tr>
+  <th class="tg-hwnp">Garment</th>
+  <th class="tg-hwnp">Lengthened Up To</th>
+</tr>
+<tr>
+  <td class="tg-lbjn">Short dress/skirt</td>
+  <td class="tg-lbjn">30.48</td>
+</tr>
+<tr>
+  <td class="tg-i81m">Long dress/skirt</td>
+  <td class="tg-i81m">43.18</td>
+</tr>
+<tr>
+  <td class="tg-lbjn">Sleeve length</td>
+  <td class="tg-lbjn">2.54</td>
+</tr>
+<tr>
+  <td class="tg-i81m">Trouser (rise)*</td>
+  <td class="tg-i81m">5.08</td>
+</tr>
+<tr>
+  <td class="tg-lbjn">Trouser (inside leg)</td>
+  <td class="tg-lbjn">30.48</td>
+</tr>
+</table>
+
+<!-- information -->
+<div class="info">
+<p><strong>Increase based on main range garment</strong></p>
+<p>*A trouser rise refers to the measurement between the crotch and the waist band</p>
+</div>
+
+</div>
+
+<!-- title bar -->
+<div class="title-bar">
+  <p>How To Measure</p>
+</div>
+
+<!-- main content container -->
+<div class="container">
+
+  <div class="how-to-measure">
+    <div class="number one">1</div>
+    <div class="number two">2</div>
+    <div class="number three">3</div>
+    <div class="number four">4</div>
+    <div class="number five">5</div>
+  </div>
+
+  <div class="info measurements">
+  <p><strong>To choose the correct size for you, measure your body as follows:</strong></p>
+
+  <p class="title"><span>1</span>Top of Shoulder</p>
+  <p>Dress lengths are given at a worn length and are taken by measuring from the top of the collarbone, to the hem or the longest point</p>
+  <div class="hr"></div>
+
+  <p class="title"><span>2</span>Bust</p>
+  <p>Take measurements around fullest part</p>
+  <div class="hr"></div>
+
+  <p class="title"><span>3</span>Waist</p>
+  <p>Measure around the natural waistline. (find the natural crease by bending to one side</p>
+  <div class="hr"></div>
+
+  <p class="title"><span>4</span>Hips</p>
+  <p>Feet together, measure the fullest part</p>
+  <div class="hr"></div>
+
+  <p class="title"><span>5</span>Inside Leg</p>
+  <p>Run the tape measure from the top of the inside leg at the crotch to the ankle bone</p>
+
+  </div>
+
+
+</div>
+
+    </div>
+
+
+
+<div class="click-container"></div>
+
+
+
+
+  </body>
+</html>
