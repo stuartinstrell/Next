@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>International Size Gide Prototype</title>
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!--<script type="text/javascript">
+    $(function() {
+    // show/hide modal box
+    $(".click-container, .close").on('click', function(e) {
+        e.preventDefault();
+        $(".modal, .overlay").toggleClass("open");
+        $("body").toggleClass("clicked");
+    });
+    // add active class to CM selector on page load
+    $(".unit-switcher p:last-child").addClass('active');
+    // load metric/hide imperial
+    $(".unit-switcher p:last-child").on('click', function(e) {
+        e.preventDefault();
+        $('.imperial').show(0);
+        $('.metric').hide(0);
+        $(".unit-switcher p:last-child").addClass("active");
+        $(".unit-switcher p:first-child").removeClass("active");
+    });
+    // load metric/hide imperial
+    $(".unit-switcher p:first-child").on('click', function(e) {
+        e.preventDefault();
+        $('.metric').show(0);
+        $('.imperial').hide(0);
+        $(".unit-switcher p:first-child").addClass("active");
+        $(".unit-switcher p:last-child").removeClass("active");
+    });
+    });
+  </script>-->
+
+    <script type="text/javascript">
+    $(function() {
+      var $usFirstChild = $(".unit-switcher p:first-child"),
+          $usLastChild = $(".unit-switcher p:last-child"),
+          $imperial = $(".imperial"),
+          $metric = $(".metric");
+
+    // show/hide modal box
+    $(".click-container, .close, .backtoshop").on("click", function(e) {
+        e.preventDefault();
+        $(".modal, .overlay").toggleClass("open");
+        $("body").toggleClass("clicked");
+    });
+
+    // add active class to imperial selector on page load
+    $usLastChild.addClass('active');
+    // load metric/hide imperial
+    $usLastChild.on('click', function(e) {
+        e.preventDefault();
+        $imperial.show('fast');
+        $metric.hide('fast');
+        $usLastChild.addClass("active");
+        $usFirstChild.removeClass("active");
+    });
+
+    // load imperial/hide metric
+    $usFirstChild.on('click', function(e) {
+        e.preventDefault();
+        $metric.show('fast');
+        $imperial.hide('fast');
+        $usFirstChild.addClass("active");
+        $usLastChild.removeClass("active");
+    });
+
+    // Previous Step
+    $('.btn.secondary').click(function() {
+        $('.modal').hide();
+        var previous = $(this).closest('.modal').prevAll('.modal').eq(0);
+        if (previous.length === 0) previous = $(this).closest('.modal').nextAll('.modal').last();
+        previous.show();
+    });
+
+    // Next Step
+    $('.btn.primary').click(function() {
+        $('.modal').hide();
+        var next = $(this).closest('.modal').nextAll('.modal').eq(0);
+        if (next.length === 0) next = $(this).closest('.modal').prevAll('.modal').last();
+        next.show();
+    });
+
+    // Bust Shape Slider
+    var labelArr = new Array("", "smaller", "medium", "larger");
+    $( ".one #slider" ).slider({
+        value:3,
+        min: 1,
+        max: 3,
+        step: 1,
+        slide: function( event, ui ) {
+          $( ".one #days" ).val( ui.value );
+          $(".one #label").html(labelArr[ui.value]);
+        }
+        });
+        $( "#days" ).val($( ".one #slider" ).slider( "value" ) );
+        $(".one #label").html(labelArr[$( ".one #slider" ).slider( "value" )]);
+        $('.one #label').appendTo('.one .ui-slider-handle');
+
+    // Waist Shape Slider
+    var labelArr = new Array("", "smaller", "medium", "larger");
+    $( ".two #slider" ).slider({
+        value:1,
+        min: 1,
+        max: 3,
+        step: 1,
+        slide: function( event, ui ) {
+          $( "#days" ).val( ui.value );
+          $(".two #label").html(labelArr[ui.value]);
+        }
+        });
+        $( "#days" ).val($( ".two #slider" ).slider( "value" ) );
+        $(".two #label").html(labelArr[$( ".two #slider" ).slider( "value" )]);
+        $('.two #label').appendTo('.two .ui-slider-handle');
+
+    // Hips Shape Slider
+    var labelArr = new Array("", "smaller", "medium", "larger");
+    $( ".three #slider" ).slider({
+        value:2,
+        min: 1,
+        max: 3,
+        step: 1,
+        slide: function( event, ui ) {
+          $( "#days" ).val( ui.value );
+          $(".three #label").html(labelArr[ui.value]);
+        }
+        });
+        $( "#days" ).val($( ".three #slider" ).slider( "value" ) );
+        $(".three #label").html(labelArr[$( ".three #slider" ).slider( "value" )]);
+        $('.three #label').appendTo('.three .ui-slider-handle');
+
+    // Show Bust Line
+        $('.slider.one').hover(function() {
+            $(".line.bust").toggleClass("visible");
+        });
+
+    // Show Waist Line
+        $('.slider.two').hover(function() {
+            $(".line.waist").toggleClass("visible");
+        });
+
+    // Show Hips Line
+        $('.slider.three').hover(function() {
+            $(".line.hips").toggleClass("visible");
+        });
+
+    // Set Active States On Page Load
+        $('.single-compare p:first-child, .size-selector .small').addClass('active');
+
+    // Show X-Small/Hide Other Sizes
+        $(".size-selector .xsmall").on('click', function(e) {
+            e.preventDefault();
+            $(".size.xsmall").show(0);
+            $(".size.small, .size.medium").hide(0);
+            $(".size-selector .xsmall").addClass("active");
+            $(".size-selector .small, .size-selector .medium").removeClass("active");
+        });
+    // Show Small/Hide Other Sizes
+        $(".size-selector .small").on('click', function(e) {
+            e.preventDefault();
+            $(".size.small").show(0);
+            $(".size.xsmall, .size.medium").hide(0);
+            $(".size-selector .small").addClass("active");
+            $(".size-selector .xsmall, .size-selector .medium").removeClass("active");
+        });
+    // Show Medium/Hide Other Sizes
+        $(".size-selector .medium").on('click', function(e) {
+            e.preventDefault();
+            $(".size.medium").show(0);
+            $(".size.xsmall, .size.small").hide(0);
+            $(".size-selector .medium").addClass("active");
+            $(".size-selector .xsmall, .size-selector .small").removeClass("active");
+        });
+
+    // Show Compared Sizes/Hide Single Size
+        $(".single-compare p:last-child").on('click', function(e) {
+            e.preventDefault();
+            $(".compare-sizes").show(0);
+            $(".single-size").hide(0);
+            $(".single-compare p:last-child").addClass("active");
+            $(".single-compare p:first-child").removeClass("active");
+        });
+    // Show Single Size/Hide Compared Sizes
+        $(".single-compare p:first-child").on('click', function(e) {
+            e.preventDefault();
+            $(".single-size").show(0);
+            $(".compare-sizes").hide(0);
+            $(".single-compare p:first-child").addClass("active");
+            $(".single-compare p:last-child").removeClass("active");
+        });
+
+        //if ((navigator.userAgent.match(/iPhone/i)) {
+          //location.replace("mobile.html");
+        //}
+
+    });
+    </script>
+
+
+
+
+  </head>
+  <body>
+
+
+    <!-- modal box step one -->
+    <div class="modal step-one">
+
+      <a class="close" href="#"><img src="img/close.svg" alt="" /></a>
+
+      <img class="logo" src="img/logo.svg" alt="" />
+
+      <h1>This is your virtual fitting room.<strong>Tell us about yourself.</strong></h1>
+
+      <div class="initial-stats">
+
+        <div class="unit-switcher">
+          <p>metric</p>
+          <p>imperial</p>
+        </div>
+
+        <div class="inputs">
+          <div class="field height">
+            <label for="">Height</label>
+                <div class="input">
+                  <p class="unitlabel imperial">ft</p>
+                  <p class="unitlabel metric">cm</p>
+                <input class="test imperial" type="text" name="height_feet" placeholder="0" maxlength="1">
+                <input class="test metric" type="text" name="height_feet" placeholder="0" maxlength="3">
+                </div>
+                <div class="input">
+                  <p class="unitlabel imperial">in.</p>
+                <input class="test imperial" type="text" name="height_inches" placeholder="0" maxlength="2">
+                </div>
+          </div>
+          <div class="field weight">
+            <label for="">Weight</label>
+                <div class="input">
+                  <p class="unitlabel imperial">st</p>
+                  <p class="unitlabel metric">kg</p>
+                <input class="test imperial" type="text" name="weight_stone" placeholder="0" maxlength="2">
+                <input class="test metric" type="text" name="weight_stone" placeholder="0" maxlength="3">
+                </div>
+                <div class="input">
+                  <p class="unitlabel imperial">lbs</p>
+                <input class="test imperial" type="text" name="weight_pounds" placeholder="0" maxlength="2">
+                </div>
+          </div>
+          <div class="field age">
+            <label for="">Age</label>
+                <div class="input">
+                <input type="text" name="age" placeholder="age" maxlength="2">
+                </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="btn primary" href="#">CONTINUE</a>
+
+    </div>
+    <!-- end modal box step one -->
+
+
+
+
+
+
+    <!-- modal box step two -->
+    <div class="modal step-two">
+
+      <a class="close" href="#"><img src="img/close.svg" alt="" /></a>
+
+      <img class="logo" src="img/logo.svg" alt="" />
+
+      <div class="right">
+      <h1>Describe your body shape</h1>
+
+      <div class="slider one">
+      <h4>Bust</h4>
+      <div class="range">
+      <div class="label" id="label"></div>
+      <div class="slide" id="slider">
+      </div>
+      </div>
+      </div>
+
+      <div class="slider two">
+      <h4>Waist</h4>
+      <div class="range">
+      <div class="label" id="label"></div>
+      <div class="slide" id="slider">
+      </div>
+      </div>
+      </div>
+
+      <div class="slider three">
+      <h4>Hips</h4>
+      <div class="range">
+      <div class="label" id="label"></div>
+      <div class="slide" id="slider">
+      </div>
+      </div>
+      </div>
+
+      </div>
+
+      <div class="left">
+
+        <div class="line bust">
+          <div></div>
+          <p>my bust</p>
+        </div>
+
+        <div class="line waist">
+          <div></div>
+          <p>my waist</p>
+        </div>
+
+        <div class="line hips">
+          <div></div>
+          <p>my hips</p>
+        </div>
+
+      <img src="img/model.png" alt="" />
+      </div>
+
+      <div class="save-measurements">
+      <label><input type="checkbox" />Save your measurements for future visits?</label>
+      </div>
+
+      <a class="btn primary" href="#">CONTINUE</a>
+      <a class="btn secondary" href="#">CHANGE MEASUREMENTS</a>
+
+    </div>
+    <!-- end modal box step two -->
+
+
+
+
+    <!-- modal box step three -->
+    <div class="modal step-three">
+
+      <a class="close" href="#"><img src="img/close.svg" alt="" /></a>
+
+      <img class="logo" src="img/logo.svg" alt="" />
+
+      <div class="right">
+      <h1>How do you want this garment to fit?</h1>
+
+      <div class="fit closer">
+        <button class="check"></button>
+        <h4>Close Fit</h4>
+        <p>Hugs the shape of your body to give a snug fit</p>
+      </div>
+
+      <div class="fit regular">
+        <button class="check"></button>
+        <h4>Regular Fit</h4>
+        <p>Follows the shape of your body but does not fit tightly</p>
+      </div>
+
+      <div class="fit relaxed">
+        <button class="check"></button>
+        <h4>Relaxed Fit</h4>
+        <p>A generous fit giving ease of movement and comfort</p>
+      </div>
+
+      </div>
+
+      <div class="left">
+
+      <img src="img/productimage.png" alt="" />
+
+      </div>
+
+      <a class="btn primary" href="#">CONTINUE</a>
+      <a class="btn secondary" href="#">CHANGE BODY SHAPE</a>
+
+    </div>
+    <!-- end modal box step three -->
+
+
+
+
+    <!-- modal box step four -->
+    <div class="modal step-four">
+
+      <div class="single-compare">
+        <p>Single Size</p>
+        <p>Compare Sizes</p>
+      </div>
+
+      <a class="close" href="#"><img src="img/close.svg" alt="" /></a>
+
+      <img class="logo" src="img/logo.svg" alt="" />
+
+      <div class="right">
+
+
+<div class="single-size">
+
+  <div class="size xsmall">
+  <div class="current-size"><p>Size <span>XS</span></p></div>
+  <div class="fit-diagram">
+  <img src="img/xsdiagram.png" alt="" />
+  </div>
+  <div class="size-selector">
+  <p class="xsmall">XS</p>
+  <p class="small">S</p>
+  <p class="medium">M</p>
+  </div>
+  </div>
+
+<div class="size small">
+<div class="current-size"><p>Size <span>S</span></p></div>
+<div class="fit-diagram">
+<img src="img/fitdiagram.png" alt="" />
+</div>
+<div class="size-selector">
+<p class="xsmall">XS</p>
+<p class="small">S</p>
+<p class="medium">M</p>
+</div>
+</div>
+
+<div class="size medium">
+<div class="current-size"><p>Size <span>M</span></p></div>
+<div class="fit-diagram">
+<img src="img/mediumdiagram.png" alt="" />
+</div>
+<div class="size-selector">
+<p class="xsmall">XS</p>
+<p class="small">S</p>
+<p class="medium">M</p>
+</div>
+</div>
+
+</div>
+
+
+
+
+<div class="compare-sizes">
+
+  <div class="size xsmall">
+  <div class="sizes">
+    <p>Size <span>XS</span></p>
+    <p>Size <span>S</span></p>
+    <p>Size <span>M</span></p>
+  </div>
+  <div class="fit-diagram">
+  <img src="img/comparefitdiagram.png" alt="" />
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+      </div>
+
+      <div class="left">
+
+      <img src="img/productimage.png" alt="" />
+
+      </div>
+
+      <div class="warning">
+        <img src="img/warning.svg" alt="" />
+        <p>None of the available sizes of this garment
+        will give you a satisfactory fit</p>
+      </div>
+
+      <a class="btn primary backtoshop" href="#">BACK TO SHOP</a>
+      <a class="btn secondary" href="#">CHANGE GARMENT FIT</a>
+
+    </div>
+    <!-- end modal box step four -->
+
+
+
+
+
+
+
+
+
+    <!-- black overlay -->
+    <div class="overlay"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="click-container"></div>
+
+
+
+
+  </body>
+</html>
