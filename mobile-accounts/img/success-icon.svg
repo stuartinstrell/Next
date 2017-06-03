@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>Success Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Order-Status---Delivered" transform="translate(-262.000000, -10.000000)" fill="#A7C691">
+            <g id="Group-5">
+                <g transform="translate(10.000000, 10.000000)">
+                    <g id="Success-Icon" transform="translate(252.000000, 0.000000)">
+                        <path d="M8,15.5 C3.8645,15.5 0.5,12.1355 0.5,8 C0.5,3.8645 3.8645,0.5 8,0.5 C12.1355,0.5 15.5,3.8645 15.5,8 C15.5,12.1355 12.1355,15.5 8,15.5 M8,0 C3.5815,0 0,3.5815 0,8 C0,12.4185 3.5815,16 8,16 C12.4185,16 16,12.4185 16,8 C16,3.5815 12.4185,0 8,0" id="Fill-1"></path>
+                        <polygon id="Fill-3" points="6.72 10.298 3.977 7.555 3.623 7.9085 6.72 11.005 12.377 5.3485 12.023 4.995"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

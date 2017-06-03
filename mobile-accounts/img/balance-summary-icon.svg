@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="22px" viewBox="0 0 16 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>Balance Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="7.11111111" width="4.69633666" height="14.2222222"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="4.69633666" height="14.2222222" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="5.3672419" y="0" width="4.69633666" height="21.3333333"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="4.69633666" height="21.3333333" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <rect id="path-5" x="10.7344838" y="11.5555556" width="4.69633666" height="9.77777778"></rect>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="4.69633666" height="9.77777778" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+    </defs>
+    <g id="Account-Summary" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-16.000000, -265.000000)" id="Balance-Summary" stroke="#111111" stroke-width="2">
+            <g transform="translate(0.000000, 250.000000)">
+                <g id="Title-Bar" transform="translate(16.000000, 1.000000)">
+                    <g id="Balance-Icon" transform="translate(0.000000, 14.000000)">
+                        <use id="Rectangle-246" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                        <use id="Rectangle-246" mask="url(#mask-4)" xlink:href="#path-3"></use>
+                        <use id="Rectangle-246" mask="url(#mask-6)" xlink:href="#path-5"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
