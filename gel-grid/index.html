@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Next Responsive Grid Prototype</title>
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+    <script type="text/javascript">
+    $(function() {
+$('a[href*="#"]:not([href="#"])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html, body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+    </script>
+  </head>
+  <body>
+
+
+<!-- header -->
+<header>
+<img src="img/nextlogo.svg" alt="" />
+<ul>
+  <li><a href="#responsive">Responsive Scaling</a></li>
+  <li><a href="#sizing">Column Sizing</a></li>
+  <li><a href="#examples">Mixed Usage Examples</a></li>
+</ul>
+</header>
+
+
+
+<!-- responsive scaling -->
+<div id="responsive" class="responsive">
+
+  <h2><span>01</span> Responsive Scaling</h2>
+
+  <section>
+
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+
+  <div class="col nxs"></div>
+  <div class="col nxs"></div>
+  <div class="col nxs"></div>
+  <div class="col nxs"></div>
+
+  <div class="col nxs lo"></div>
+  <div class="col nxs lo"></div>
+  <div class="col nxs lo"></div>
+  <div class="col nxs lo"></div>
+
+  </section>
+
+</div>
+
+
+
+<!-- column sizing -->
+<div class="sizing">
+
+<h2 id="sizing"><span>02</span> Column Sizing</h2>
+
+<section>
+  <h3>12 Column</h3>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+</section>
+
+<section>
+  <h3>8 Column</h3>
+<div class="col w1/8"></div>
+<div class="col w1/8"></div>
+<div class="col w1/8"></div>
+<div class="col w1/8"></div>
+<div class="col w1/8"></div>
+<div class="col w1/8"></div>
+<div class="col w1/8"></div>
+<div class="col w1/8"></div>
+</section>
+
+<section>
+  <h3>5 Column</h3>
+<div class="col w1/5"></div>
+<div class="col w1/5"></div>
+<div class="col w1/5"></div>
+<div class="col w1/5"></div>
+<div class="col w1/5"></div>
+</section>
+
+<section>
+  <h3>4 Column</h3>
+<div class="col w1/4"></div>
+<div class="col w1/4"></div>
+<div class="col w1/4"></div>
+<div class="col w1/4"></div>
+</section>
+
+<section>
+  <h3>3 Column</h3>
+<div class="col w1/3"></div>
+<div class="col w1/3"></div>
+<div class="col w1/3"></div>
+</section>
+
+<section>
+  <h3>2 Column</h3>
+<div class="col w1/2"></div>
+<div class="col w1/2"></div>
+</section>
+
+<section>
+  <h3>1 Column</h3>
+<div class="col w1/1"></div>
+</section>
+
+</div>
+
+<!-- mixed usage examples -->
+<div id="examples" class="examples">
+
+  <h2><span>03</span> Mixed Usage Examples</h2>
+
+<section>
+  <h3>1 Quarter / 3 Quarters</h3>
+<div class="col w1/4"></div>
+<div class="col w3/4"></div>
+</section>
+
+<section>
+  <h3>Half / Quarter / 3 Twelfths</h3>
+<div class="col w1/2"></div>
+<div class="col w1/4"></div>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+<div class="col w1/12"></div>
+</section>
+
+<section>
+  <h3>2 Thirds / 1 Third</h3>
+<div class="col w2/3"></div>
+<div class="col w1/3"></div>
+</section>
+
+<section>
+  <h3>2 Eighths / 2 Thirds / 1 Twelfth</h3>
+<div class="col w2/8"></div>
+<div class="col w2/3"></div>
+<div class="col w1/12"></div>
+</section>
+
+</div>
+
+
+
+
+
+
+
+  </body>
+</html>
